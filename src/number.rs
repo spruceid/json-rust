@@ -1,8 +1,8 @@
 use std::{ ops, fmt, f32, f64 };
 use std::convert::{TryFrom, Infallible};
 use std::num::{FpCategory, TryFromIntError};
-use crate::util::grisu2;
-use crate::util::print_dec;
+use crate::json::util::grisu2;
+use crate::json::util::print_dec;
 
 /// NaN value represented in `Number` type. NaN is equal to itself.
 pub const NAN: Number = Number {

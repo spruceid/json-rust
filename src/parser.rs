@@ -20,9 +20,9 @@
 use std::{str, slice};
 use std::char::decode_utf16;
 use std::convert::TryFrom;
-use crate::object::Object;
-use crate::number::Number;
-use crate::{JsonValue, Error, Result};
+use crate::json::object::Object;
+use crate::json::number::Number;
+use crate::json::{JsonValue, Error, Result};
 
 // This is not actual max precision, but a threshold at which number parsing
 // kicks into checked math.
@@ -766,11 +766,11 @@ pub fn parse(source: &str) -> Result<JsonValue> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::stringify;
-    use crate::JsonValue;
+    use crate::json::stringify;
+    use crate::json::JsonValue;
 
-    use crate::object;
-    use crate::array;
+    use crate::json::object;
+    use crate::json::array;
 
     use std::fs::File;
     use std::io::prelude::*;

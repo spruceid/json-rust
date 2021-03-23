@@ -3,12 +3,12 @@ use std::convert::TryInto;
 use std::{fmt, mem, usize, u8, u16, u32, u64, isize, i8, i16, i32, i64, f32};
 use std::io::{self, Write};
 
-use crate::{Result, Error};
-use crate::short::Short;
-use crate::number::Number;
-use crate::object::Object;
-use crate::iterators::{ Members, MembersMut, Entries, EntriesMut };
-use crate::codegen::{ Generator, PrettyGenerator, DumpGenerator, WriterGenerator, PrettyWriterGenerator };
+use crate::json::{Result, Error};
+use crate::json::short::Short;
+use crate::json::number::Number;
+use crate::json::object::Object;
+use crate::json::iterators::{ Members, MembersMut, Entries, EntriesMut };
+use crate::json::codegen::{ Generator, PrettyGenerator, DumpGenerator, WriterGenerator, PrettyWriterGenerator };
 
 mod implements;
 

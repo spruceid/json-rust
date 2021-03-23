@@ -2,8 +2,8 @@ use std::{ ptr, mem, str, slice, vec, fmt };
 use std::ops::{ Index, IndexMut, Deref };
 use std::iter::FromIterator;
 
-use crate::codegen::{ DumpGenerator, Generator, PrettyGenerator };
-use crate::value::JsonValue;
+use crate::json::codegen::{ DumpGenerator, Generator, PrettyGenerator };
+use crate::json::value::JsonValue;
 
 const KEY_BUF_LEN: usize = 32;
 static NULL: JsonValue = JsonValue::Null;

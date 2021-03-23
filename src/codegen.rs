@@ -2,10 +2,10 @@ use std::ptr;
 use std::io::Write;
 use std::io;
 
-use crate::JsonValue;
-use crate::number::Number;
-use crate::object::Object;
-use crate::util::print_dec;
+use crate::json::JsonValue;
+use crate::json::number::Number;
+use crate::json::object::Object;
+use crate::json::util::print_dec;
 
 const QU: u8 = b'"';
 const BS: u8 = b'\\';

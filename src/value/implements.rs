@@ -3,10 +3,10 @@
 
 use std::collections::{BTreeMap, HashMap};
 
-use crate::short::{self, Short};
-use crate::number::Number;
-use crate::object::Object;
-use crate::value::JsonValue;
+use crate::json::short::{self, Short};
+use crate::json::number::Number;
+use crate::json::object::Object;
+use crate::json::value::JsonValue;
 
 macro_rules! implement_eq {
     ($to:ident, $from:ty) => {

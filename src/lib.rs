@@ -238,7 +238,7 @@ pub mod iterators {
 pub use Error as JsonError;
 
 #[deprecated(since="0.9.0", note="use `json::Result` instead")]
-pub use crate::Result as JsonResult;
+pub use crate::json::Result as JsonResult;
 
 pub use parser::parse;
 
@@ -278,7 +278,7 @@ pub fn stringify_pretty<T>(root: T, spaces: u16) -> String where T: Into<JsonVal
 /// ```
 #[macro_export]
 macro_rules! array {
-    [] => ($crate::JsonValue::new_array());
+    [] => ($crate::json::JsonValue::new_array());
 
     // Handles for token tree items
     [@ITEM($( $i:expr, )*) $item:tt, $( $cont:tt )+] => {
@@ -317,7 +317,7 @@ macro_rules! array {
             array.push($i.into());
         )*
 
-        $crate::JsonValue::Array(array)
+        $crate::json::JsonValue::Array(array)
     });
 
     // Entry point to the macro
@@ -330,7 +330,7 @@ macro_rules! array {
 /// Helper crate for converting types into `JsonValue`. It's used
 /// internally by the `object!` and `array!` macros.
 macro_rules! value {
-    ( null ) => { $crate::Null };
+    ( null ) => { $crate::json::Null };
     ( [$( $token:tt )*] ) => {
         // 10
         $crate::array![ $( $token )* ]
@@ -360,7 +360,7 @@ macro_rules! value {
 #[macro_export]
 macro_rules! object {
     // Empty object.
-    {} => ($crate::JsonValue::new_object());
+    {} => ($crate::json::JsonValue::new_object());
 
     // Handles for different types of keys
     (@ENTRY($( $k:expr => $v:expr, )*) $key:ident: $( $cont:tt )*) => {
@@ -405,13 +405,13 @@ macro_rules! object {
     // Construct the actual object
     (@END $( $k:expr => $v:expr, )*) => ({
         let size = 0 $( + {let _ = &$k; 1} )*;
-        let mut object = $crate::object::Object::with_capacity(size);
+        let mut object = $crate::json::object::Object::with_capacity(size);
 
         $(
             object.insert($k, $v.into());
         )*
 
-        $crate::JsonValue::Object(object)
+        $crate::json::JsonValue::Object(object)
     });
 
     // Entry point to the macro
